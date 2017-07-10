@@ -1,0 +1,35 @@
+﻿<Window x:Class="TrabalhoSO.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrabalhoSO"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="1100">
+
+    <Window.Resources>
+        <CollectionViewSource x:Key="ItemCollectionViewSource"  CollectionViewType="ListCollectionView"/>
+    </Window.Resources>
+    <Grid RenderTransformOrigin="0.664,0.323">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Grid.ColumnSpan="2" Header="Entrada" HorizontalAlignment="Left" Height="178" Margin="10,10,0,0" VerticalAlignment="Top" Width="297">
+            <Grid HorizontalAlignment="Left" Height="157" Margin="0,10,-2.2,0" VerticalAlignment="Top" Width="287">
+                <Label Content="Q1" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="Q2text" HorizontalAlignment="Left" Height="23" Margin="117,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="Q1text" HorizontalAlignment="Left" Height="23" Margin="117,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="ZerarBitRtext" HorizontalAlignment="Left" Height="23" Margin="117,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Q2" HorizontalAlignment="Left" Margin="25,38,0,0" VerticalAlignment="Top"/>
+                <Label Content="Zera BitR" HorizontalAlignment="Left" Margin="25,63,0,0" VerticalAlignment="Top"/>
+                <Button Name="btnOpenFile" Click="btnOpenFile_Click" Content="Buscar Arquivo" HorizontalAlignment="Left" Margin="74,107,0,0" VerticalAlignment="Top" Width="109"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.ColumnSpan="2" Header="Tabela" HorizontalAlignment="Left" Height="261" Margin="325,10,0,0" VerticalAlignment="Top" Width="759">
+            <DataGrid x:Name="tabela" HorizontalAlignment="Left" Height="241" VerticalAlignment="Top" Width="749" IsReadOnly="True" Margin="0,0,-2.6,-1.8" MinColumnWidth="80"/>
+        </GroupBox>
+
+
+    </Grid>
+</Window>
