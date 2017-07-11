@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using MindFusion.Charting.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -31,6 +32,8 @@ namespace TrabalhoSO
         public int Q2;
         public int ZerarBitR;
 
+        public ObservableCollection<LineSeries> mydata = new ObservableCollection<LineSeries>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -38,8 +41,9 @@ namespace TrabalhoSO
             numero = new List<int>();
             operacao = new List<string>();
 
+            MyChart.ItemsSource = mydata;
+            
 
-           
         }
 
         private async void btnOpenFile_Click(object sender, RoutedEventArgs e)
@@ -131,9 +135,51 @@ namespace TrabalhoSO
 
             //mostra acertos na tabela
             tabela.ItemsSource = menuList;
-            
+
 
             //mostra acertos no grafico
+
+            LineSeries MySeriesFIFO = new LineSeries();
+            LineSeries MySeriesSC = new LineSeries();
+            LineSeries MySeriesLRU = new LineSeries();
+            LineSeries MySeriesNRU = new LineSeries();
+            LineSeries MySeriesBEST = new LineSeries();
+            var j = 0;
+            for (int i = q1; i <= q2; i++)
+            {
+
+
+                MySeriesSC.MyData.Add(new DataPoint() { Frequency = (double)i, Value = SC[j] });
+                MySeriesSC.Name += "Segunda Chance";
+
+                MySeriesNRU.MyData.Add(new DataPoint() { Frequency = (double)i, Value = NRU[j] });
+                MySeriesNRU.Name = "NRU";
+
+                MySeriesBEST.MyData.Add(new DataPoint() { Frequency = (double)i, Value = BEST[j] });
+                MySeriesBEST.Name = "BEST";
+
+                MySeriesFIFO.MyData.Add(new DataPoint() { Frequency = (double)i, Value = FIFO[j] });
+                MySeriesFIFO.Name += "FIFO";
+
+                MySeriesLRU.MyData.Add(new DataPoint() { Frequency = (double)i, Value = LRU[j] });
+                MySeriesLRU.Name = "LRU";
+
+                
+
+                
+
+                j++;
+                
+            }
+
+            
+            mydata.Add(MySeriesSC);
+            mydata.Add(MySeriesNRU);
+            mydata.Add(MySeriesBEST);
+            mydata.Add(MySeriesFIFO);
+            mydata.Add(MySeriesLRU);
+
+
         }
 
 

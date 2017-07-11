@@ -4,12 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TrabalhoSO"
+        xmlns:Chart="clr-namespace:TrabalhoSO.ChartControl"
         mc:Ignorable="d"
-        Title="S.O-N2" Height="500" Width="1100">
+        Title="S.O-N2" Height="800" Width="1100">
 
-    <Window.Resources>
-        <CollectionViewSource x:Key="ItemCollectionViewSource"  CollectionViewType="ListCollectionView"/>
-    </Window.Resources>
     <Grid RenderTransformOrigin="0.664,0.323">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
@@ -22,12 +20,34 @@
                 <TextBox x:Name="Q1text" HorizontalAlignment="Left" Height="23" Margin="117,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <TextBox x:Name="ZerarBitRtext" HorizontalAlignment="Left" Height="23" Margin="117,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <Label Content="Q2" HorizontalAlignment="Left" Margin="25,38,0,0" VerticalAlignment="Top"/>
-                <Label Content="Zera BitR" HorizontalAlignment="Left" Margin="25,63,0,0" VerticalAlignment="Top"/>
-                <Button Name="btnOpenFile" Click="btnOpenFile_Click" Content="Buscar Arquivo" HorizontalAlignment="Left" Margin="74,107,0,0" VerticalAlignment="Top" Width="109"/>
+                <Label Content="Zerar BitR" HorizontalAlignment="Left" Margin="25,63,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="btnOpenFile" Click="btnOpenFile_Click" Content="Buscar Arquivo" HorizontalAlignment="Left" Margin="74,107,0,0" VerticalAlignment="Top" Width="109"/>
             </Grid>
         </GroupBox>
-        <GroupBox Grid.ColumnSpan="2" Header="Tabela" HorizontalAlignment="Left" Height="261" Margin="325,10,0,0" VerticalAlignment="Top" Width="759">
-            <DataGrid x:Name="tabela" HorizontalAlignment="Left" Height="241" VerticalAlignment="Top" Width="749" IsReadOnly="True" Margin="0,0,-2.6,-1.8" MinColumnWidth="80"/>
+        <GroupBox Grid.ColumnSpan="2" Header="Tabela" HorizontalAlignment="Left" Height="363" Margin="325,10,0,0" VerticalAlignment="Top" Width="759">
+            <DataGrid x:Name="tabela" HorizontalAlignment="Left" Width="749" IsReadOnly="True" Margin="0,10,-2.6,2.8" MinColumnWidth="80"/>
+        </GroupBox>
+        <GroupBox Grid.ColumnSpan="2" Header="Gráfico" HorizontalAlignment="Left" Height="376" Margin="10,384,0,0" VerticalAlignment="Top" Width="1074">
+
+
+            <Chart:BasicChart x:Name="MyChart" Height="350" Width="1000" 
+                    DataCollectionName="MyData"   
+                    DisplayMemberLabels="Frequency"
+                    DisplayMemberValues="Value"
+                    SkipLabels="1"
+                    StartSkipAt="0"
+                    ShowGraphPoints="True"
+                    ChartTitle="Algoritmos de Substituição de Páginas" YLabel="Quantidade de Acertos" 
+                    XLabel="Q. de Frames" 
+                    YMax="1" 
+                    YMin="0" 
+                    DoubleToString="N0"
+                    XMin="0" XMax="0"
+                    >
+
+            </Chart:BasicChart>
+
+
         </GroupBox>
 
 

@@ -14,15 +14,10 @@ namespace TrabalhoSO.Algoritmos
         public List<int> ListaPag;
         public List<string> Operacoes;
 
-
-
         public List<int> AcertosBEST;
         public List<int> FilaBEST;
         public List<int> ValoresRef;
         
-
-
-
         public BEST(int q1, int q2,  List<int> numero)
         {
             Q1 = q1;

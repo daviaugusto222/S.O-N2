@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\davia\Source\Repos\S.O-N2\TrabalhoSO\obj\Debug\
+C:\Users\davia\Source\Repos\S.O-N2\TrabalhoSO\obj\Release\
 TrabalhoSO
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\davia\Source\Repos\S.O-N2\TrabalhoSO\App.xaml
 4-1483636149
 
-17-380884773
+21-1898740014
 15-5580977
 ChartControl\BasicChart.xaml;ChartControl\XAxisLabels.xaml;ChartControl\YAxisLabels.xaml;MainWindow.xaml;
 
-False
+True
 

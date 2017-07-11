@@ -14,8 +14,6 @@ namespace TrabalhoSO.Algoritmos
         public List<int> ListaPag;
         public List<string> Operacoes;
 
-
-
         public List<int> AcertosNRU;
         public List<int> FilaNRU;
         public List<int> BitR;
@@ -54,7 +52,7 @@ namespace TrabalhoSO.Algoritmos
 
 
 
-            for (int i = Q1; i <= Q2; i++) // se repete de Q1 ate Q2, página inical ao página final
+            for (int i = Q1; i <= Q2; i++) // repete de Q1 ate Q2, página inical a página final
             {
                 for (int k = 0; k < ListaPag.Count; k++) //caminha pela lista de referencias
                 {
@@ -63,7 +61,7 @@ namespace TrabalhoSO.Algoritmos
                     {
                         acertos++;
 
-                        for (int j = 0; j < FilaNRU.Count; j++) //procura pela pagina para alterar os bits R e M
+                        for (int j = 0; j < FilaNRU.Count; j++) //procura pela pagina para atualizar os bits R e M
                         {
                             if (FilaNRU[j] == ListaPag[k])
                             {

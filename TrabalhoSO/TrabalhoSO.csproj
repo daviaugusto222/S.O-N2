@@ -34,6 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MindFusion.Charting.Wpf, Version=2.2.0.40, Culture=neutral, PublicKeyToken=305cd0896f327431, processorArchitecture=MSIL" />
+    <Reference Include="MindFusion.Licensing, Version=1.0.3.25443, Culture=neutral, PublicKeyToken=9d02e21d957ddaef, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -54,6 +56,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ChartControl\BasicChart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChartControl\XAxisLabels.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChartControl\YAxisLabels.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,13 +81,25 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="data.cs" />
+    <Compile Include="ChartControl\BasicChart.xaml.cs">
+      <DependentUpon>BasicChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChartControl\CheckBoxClass.cs" />
+    <Compile Include="ChartControl\XAxisLabels.xaml.cs">
+      <DependentUpon>XAxisLabels.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChartControl\YAxisLabels.xaml.cs">
+      <DependentUpon>YAxisLabels.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataPoint.cs" />
+    <Compile Include="LineSeries.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NotifierBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
