@@ -19,7 +19,7 @@ namespace TrabalhoSO.Algoritmos
         public List<int> AcertosBEST;
         public List<int> FilaBEST;
         public List<int> ValoresRef;
-        public List<int> BitM;
+        
 
 
 
@@ -30,11 +30,9 @@ namespace TrabalhoSO.Algoritmos
             
             ListaPag = numero;
             
-
             FilaBEST = new List<int>();
             AcertosBEST = new List<int>();
             ValoresRef = new List<int>();
-            BitM = new List<int>();
             
         }
 
@@ -52,9 +50,6 @@ namespace TrabalhoSO.Algoritmos
         private List<int> BESTe()
         {
             int acertos = 0;
-           
-
-
 
             for (int i = Q1; i <= Q2; i++) // se repete de Q1 ate Q2, página inical ao página final
             {
@@ -74,7 +69,6 @@ namespace TrabalhoSO.Algoritmos
                         }
                         else
                         {//falta de pagina
-
                             for (int t = 0; t < FilaBEST.Count; t++)
                             {
                                 ValoresRef[t] = 0;
@@ -85,14 +79,10 @@ namespace TrabalhoSO.Algoritmos
                                     {
                                         break;
                                     }
-
                                 }
-
-
                             }
                             for (int y = 0; y < FilaBEST.Count; y++)
                             {
-                                
                                 if (ValoresRef.Max() == ValoresRef[y])
                                 {
                                     FilaBEST.RemoveAt(y);
@@ -103,17 +93,9 @@ namespace TrabalhoSO.Algoritmos
 
                                     break;
                                 }
-
                             }
-                           
-
-
                         }
                     }
-
-
-
-
                 }
 
                 AcertosBEST.Add(acertos);
@@ -123,7 +105,7 @@ namespace TrabalhoSO.Algoritmos
 
                 //zera fila bitR e bitM
                 ValoresRef.Clear();
-                BitM.Clear();
+                
 
                 acertos = 0;
                 
@@ -132,31 +114,7 @@ namespace TrabalhoSO.Algoritmos
             return AcertosBEST;
         }
 
-        private bool TrocaPagina(int k, int g)
-        {
-
-
-
-            FilaBEST.RemoveAt(g);
-            ValoresRef.RemoveAt(g);
-            BitM.RemoveAt(g);
-
-            FilaBEST.Add(ListaPag[k]);
-            ValoresRef.Add(1);
-
-            if (Operacoes[k] == "W")
-            {
-                BitM.Add(1);
-            }
-            else
-            {
-                BitM.Add(0);
-            }
-
-
-
-            return false;
-        }
+        
     }
 }
 
