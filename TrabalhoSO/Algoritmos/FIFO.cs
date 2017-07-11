@@ -76,7 +76,7 @@ namespace TrabalhoSO.Algoritmos
                 }
 
                 AcertosFIFO.Add(acertos);
-                FilaFIFO.RemoveRange(0, FilaFIFO.Count());
+                FilaFIFO.Clear();
                 Q1++;
             }
             

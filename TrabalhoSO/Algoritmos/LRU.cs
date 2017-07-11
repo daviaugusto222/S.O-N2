@@ -77,7 +77,7 @@ namespace TrabalhoSO.Algoritmos
 
                 AcertosLRU.Add(acertos);
                 acertos = 0;
-                FilaLRU.RemoveRange(0, FilaLRU.Count());
+                FilaLRU.Clear();
 
 
             }

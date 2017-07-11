@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TrabalhoSO"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="1100">
+        Title="S.O-N2" Height="500" Width="1100">
 
     <Window.Resources>
         <CollectionViewSource x:Key="ItemCollectionViewSource"  CollectionViewType="ListCollectionView"/>

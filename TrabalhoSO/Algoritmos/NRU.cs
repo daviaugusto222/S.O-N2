@@ -54,22 +54,22 @@ namespace TrabalhoSO.Algoritmos
 
 
 
-            for (int i = Q1; i <= Q2; i++)
+            for (int i = Q1; i <= Q2; i++) // se repete de Q1 ate Q2, página inical ao página final
             {
-                for (int k = 0; k < ListaPag.Count; k++)
+                for (int k = 0; k < ListaPag.Count; k++) //caminha pela lista de referencias
                 {
 
                     if (FilaNRU.Contains(ListaPag[k])) //se a pagina ja esta na memoria
                     {
                         acertos++;
 
-                        for (int j = 0; j < FilaNRU.Count; j++)
+                        for (int j = 0; j < FilaNRU.Count; j++) //procura pela pagina para alterar os bits R e M
                         {
                             if (FilaNRU[j] == ListaPag[k])
                             {
                                 
                                 BitR[j] = 1;
-                                //so pode mudar bit m de 0 para 1
+                                //so pode mudar bit M de 0 para 1
                                 if (BitM[j] == 0 && Operacoes[k] == "W")
                                 {
                                     BitM[j] = 1;
@@ -82,7 +82,7 @@ namespace TrabalhoSO.Algoritmos
                     }
                     else
                     {
-                        if (FilaNRU.Count < i)
+                        if (FilaNRU.Count < i) //verifica se a memoria está cheia
                         {
                             
                             FilaNRU.Add(ListaPag[k]);
@@ -162,16 +162,18 @@ namespace TrabalhoSO.Algoritmos
                 }
 
                 AcertosNRU.Add(acertos);
-                //zera fila SC
-                FilaNRU.RemoveRange(0, FilaNRU.Count());
 
-                //zera fila bitR
-                BitR.RemoveRange(0, BitR.Count());
-                BitM.RemoveRange(0, BitM.Count());
+                //zera fila SC
+                FilaNRU.Clear();
+
+                //zera fila bitR e bitM
+                BitR.Clear();
+                BitM.Clear();
 
                 acertos = 0;
                 zerar = 0;
             }
+
             return AcertosNRU;
         }
 

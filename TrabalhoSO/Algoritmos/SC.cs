@@ -136,9 +136,9 @@ namespace TrabalhoSO.Algoritmos
 
                 AcertosSC.Add(acertos);
                 //zera fila SC
-                FilaSC.RemoveRange(0, FilaSC.Count());
+                FilaSC.Clear();
                 //zera fila bitR
-                BitR.RemoveRange(0, BitR.Count());
+                BitR.Clear();
 
                 acertos = 0;
                 zerar = 0;

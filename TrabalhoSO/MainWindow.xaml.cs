@@ -50,21 +50,23 @@ namespace TrabalhoSO
             ZerarBitR = Int32.Parse(ZerarBitRtext.Text);
 
 
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
 
-            //define as propriedades do controle 
-            //OpenFileDialog
-            openFileDialog.Multiselect = false;
-            openFileDialog.Title = "Selecionar Arquivo";
-            openFileDialog.InitialDirectory = @"C:\";
-            //filtra para exibir somente arquivos de imagens
-            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-            openFileDialog.CheckFileExists = true;
-            openFileDialog.CheckPathExists = true;
-            openFileDialog.FilterIndex = 2;
-            openFileDialog.RestoreDirectory = true;
-            openFileDialog.ReadOnlyChecked = true;
-            openFileDialog.ShowReadOnly = true;
+                //define as propriedades do controle 
+                //OpenFileDialog
+                Multiselect = false,
+                Title = "Selecionar Arquivo",
+                InitialDirectory = @"C:\",
+                //filtra para exibir somente arquivos de imagens
+                Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*",
+                CheckFileExists = true,
+                CheckPathExists = true,
+                FilterIndex = 2,
+                RestoreDirectory = true,
+                ReadOnlyChecked = true,
+                ShowReadOnly = true
+            };
 
 
             if (openFileDialog.ShowDialog() == true)
@@ -87,27 +89,26 @@ namespace TrabalhoSO
                 }
             }
 
-            //começa treads'+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            //começa tasks'+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             FIFO Fifo = new FIFO(Q1, Q2, numero);
             SC Sc     = new SC  (Q1, Q2, ZerarBitR, numero, operacao);
             LRU Lru   = new LRU (Q1, Q2, numero);
             NRU Nru   = new NRU (Q1, Q2, ZerarBitR, numero, operacao);
+            BEST Best = new BEST(Q1, Q2, numero);
 
             List<int> AcertosFIFO = await Fifo.ExecutaFIFO();
-            
-            List<int> AcertosSC = await Sc.ExecutaSC();
-
-            List<int> AcertosLRU = await Lru.ExecutaLRU();
-
-            List<int> AcertosNRU = await Nru.ExecutaNRU();
+            List<int> AcertosSC   = await Sc.ExecutaSC();
+            List<int> AcertosLRU  = await Lru.ExecutaLRU();
+            List<int> AcertosNRU  = await Nru.ExecutaNRU();
+            List<int> AcertosBEST = await Best.ExecutaBEST();
 
 
-            ShowResults(Q1, Q2, AcertosFIFO, AcertosSC, AcertosLRU, AcertosNRU);
+            ShowResults(Q1, Q2, AcertosFIFO, AcertosSC, AcertosLRU, AcertosNRU, AcertosBEST);
 
         }
 
 
-        public void ShowResults(int q1, int q2, List<int> fifo, List<int> sc, List<int> lru,List<int> nru)
+        public void ShowResults(int q1, int q2, List<int> fifo, List<int> sc, List<int> lru,List<int> nru, List<int> best)
         {
             int Q1 = q1;
             int Q2 = q2;
@@ -115,13 +116,14 @@ namespace TrabalhoSO
             List<int> SC = sc;
             List<int> LRU = lru;
             List<int> NRU = nru;
+            List<int> BEST = best;
 
 
             var menuList = new object[FIFO.Count];
 
             for (int i = 0; i < FIFO.Count; i++)
             {
-                menuList[i] = new { Frames = Q1, SC = SC[i], NRU = NRU[i], BEST = 0, FIFO = FIFO[i], LRU = LRU[i] };
+                menuList[i] = new { Frames = Q1, SC = SC[i], NRU = NRU[i], BEST = BEST[i], FIFO = FIFO[i], LRU = LRU[i] };
                 Q1++;
 
             }
